@@ -1,0 +1,188 @@
+openapi: 3.0.0
+info:
+  title: Express Redis Implementation With Swagger
+  version: 1.0.0
+  description: Express Redis Implementation With Swagger
+servers:
+  - url: http://localhost:3001
+paths:
+  /api/v1/user/cache:
+    get:
+      summary: Get Users List With Cache
+      description: Returns a list of users with caching
+      tags:
+       - User
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                        example: 1
+                      next:
+                        type: string
+                        example: "https://swapi.dev/api/people/?page=2"
+                      previous:
+                        type: string
+                        nullable: true
+                        example: null
+                      results:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              example: "Luke Skywalker"
+                            height:
+                              type: string
+                              example: "172"
+                            mass:
+                              type: string
+                              example: "77"
+                            hair_color:
+                              type: string
+                              example: "blond"
+                            skin_color:
+                              type: string
+                              example: "fair"
+                            eye_color:
+                              type: string
+                              example: "blue"
+                            birth_year:
+                              type: string
+                              example: "19BBY"
+                            gender:
+                              type: string
+                              example: "male"
+                            homeworld:
+                              type: string
+                              example: "https://swapi.dev/api/planets/1/"
+                            films:
+                              type: array
+                              items:
+                                type: string
+                              example: []
+                            species:
+                              type: array
+                              items:
+                                type: string
+                              example: []
+                            vehicles:
+                              type: array
+                              items:
+                                type: string
+                              example: []
+                            starships:
+                              type: array
+                              items:
+                                type: string
+                              example: []
+                            created:
+                              type: string
+                              format: date-time
+                              example: "2014-12-09T13:50:51.644000Z"
+                            edited:
+                              type: string
+                              format: date-time
+                              example: "2014-12-20T21:17:56.891000Z"
+                            url:
+                              type: string
+                              example: "https://swapi.dev/api/people/1/"
+  /api/v1/user/no-cache:
+    get:
+      summary: Get Users List
+      description: Returns a list of users
+      tags:
+       - User
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                        example: 1
+                      next:
+                        type: string
+                        example: "https://swapi.dev/api/people/?page=2"
+                      previous:
+                        type: string
+                        nullable: true
+                        example: null
+                      results:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              example: "Luke Skywalker"
+                            height:
+                              type: string
+                              example: "172"
+                            mass:
+                              type: string
+                              example: "77"
+                            hair_color:
+                              type: string
+                              example: "blond"
+                            skin_color:
+                              type: string
+                              example: "fair"
+                            eye_color:
+                              type: string
+                              example: "blue"
+                            birth_year:
+                              type: string
+                              example: "19BBY"
+                            gender:
+                              type: string
+                              example: "male"
+                            homeworld:
+                              type: string
+                              example: "https://swapi.dev/api/planets/1/"
+                            films:
+                              type: array
+                              items:
+                                type: string
+                              example: []
+                            species:
+                              type: array
+                              items:
+                                type: string
+                              example: []
+                            vehicles:
+                              type: array
+                              items:
+                                type: string
+                              example: []
+                            starships:
+                              type: array
+                              items:
+                                type: string
+                              example: []
+                            created:
+                              type: string
+                              format: date-time
+                              example: "2014-12-09T13:50:51.644000Z"
+                            edited:
+                              type: string
+                              format: date-time
+                              example: "2014-12-20T21:17:56.891000Z"
+                            url:
+                              type: string
+                              example: "https://swapi.dev/api/people/1/"
